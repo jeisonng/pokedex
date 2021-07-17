@@ -1,0 +1,26 @@
+const images = {
+    grass:require('./grass.png'),
+    bug:require('./bug.png'),
+    dark:require('./dark.png'),
+    dragon:require('./dragon.png'),
+    electric:require('./electric.png'),
+    fairy:require('./fairy.png'),
+    fighting:require('./fighting.png'),
+    fire:require('./fire.png'),
+    flying:require('./flying.png'),
+    ghost:require('./ghost.png'),
+    ground:require('./ground.png'),
+    ice:require('./ice.png'),
+    normal:require('./normal.png'),
+    poison:require('./poison.png'),
+    psychic:require('./psychic.png'),
+    rock:require('./rock.png'),
+    steel:require('./steel.png'),
+    water:require('./water.png'),
+    pokeball:require('./Poke.gif'),
+    pikachu:require('./pikachu.gif'),
+    pikachuRun:require('./pikachuRun.gif'),
+    magikarp:require('./magikarp.gif'),
+};
+
+export default images;
