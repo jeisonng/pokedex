@@ -1,48 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native';
-const { width } = Dimensions.get('window');
+import React from 'react';
+import { TouchableOpacity, } from 'react-native';
 
-// import { Container } from './styles';
+import { Container, Button, Text } from './styles';
 
 const Pagination = ({ next, previous, page }) => {
-
-
-    return <View style={styles.pagination}>
+    return <Container>
         <TouchableOpacity onPress={previous}>
-            <View style={styles.button}>
+            <Button>
                 <Text>Anterior</Text>
-            </View>
+            </Button>
         </TouchableOpacity>
         <Text>Página {page}</Text>
         <TouchableOpacity onPress={next}>
-            <View style={styles.button}>
+            <Button>
                 <Text>Próxima</Text>
-            </View>
+            </Button>
         </TouchableOpacity>
-    </View>
+    </Container>
 }
-
-const styles = StyleSheet.create({
-    pagination: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: width * 0.8,
-        paddingHorizontal: 20
-    },
-    button: {
-        paddingHorizontal: 20,
-        paddingVertical: 5,
-        shadowOffset: {
-            width: 1,
-            height: 1,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-        elevation: 2,
-        borderRadius: 50,
-        marginVertical: 5
-    }
-})
 
 export default Pagination;

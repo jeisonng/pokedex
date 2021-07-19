@@ -1,5 +1,5 @@
 const colors = {
-    grass:"#a8ff98",
+    grass:"#91cba8",
     bug:"#bae05f",
     dark:"#8e8c94",
     dragon:"#88a2e8",
