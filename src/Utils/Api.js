@@ -19,7 +19,7 @@ export const getData = async () => {
         const pokemonList = await getPokemonList(results);
         return { pokemonList, next, previous };
     } catch (error) {
-        return {error};
+        return { error };
     }
 }
 
@@ -39,14 +39,18 @@ export const searchByName = async (name) => {
 }
 
 export const getMoves = async (data) => {
-    const movesList = [];
-    await Promise.all(
-        data.map(async ({ move }) => {
-            const result = await axios.get(`${BASE_URL}move/${move.name}/`)
-            movesList.push(result.data);
-        })
-    )
-    return movesList.sort((a, b) => a.id - b.id);
+    try {
+        const movesList = [];
+        await Promise.all(
+            data.map(async ({ move }) => {
+                const result = await axios.get(`${BASE_URL}move/${move.name}/`)
+                movesList.push(result.data);
+            })
+        )
+        return { movesList: movesList.sort((a, b) => a.id - b.id) };
+    } catch (error) {
+        return { error }
+    }
 }
 
 export const getEvolutions = async (name) => {

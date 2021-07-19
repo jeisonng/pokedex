@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList,RefreshControl, ScrollView } from 'react-native';
 import { getMoves } from '../../Utils/Api';
-import Loading from '../../Components/Loading';
-import MovesFlatList from '../../Components/MovesFlatList';
+import Loading from '../Loading';
+import MovesFlatList from '../MovesFlatList';
+import Error from '../Error';
+
+
 
 const Moves = ({ moves, color }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         (async () => {
-            setLoading(true)
-            const result = await getMoves(moves);
-            setData(result)
-            setLoading(false)
+            try {
+                setLoading(true)
+                const {movesList,error} = await getMoves(moves);
+                if(error) throw Error('error')
+                setData(movesList)
+                setLoading(false)
+                setError(false)
+            } catch (error) {
+                setError(true)
+            }
         })()
     }, [])
     return <View>

@@ -9,6 +9,7 @@ import Error from '../../Components/Error';
 import { Container } from './styles';
 
 
+
 const Home = ({ navigation }) => {
     const [pokemons, setPokemons] = useState([]);
     const [nextPage, setNextPage] = useState(null);
